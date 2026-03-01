@@ -14,6 +14,8 @@ namespace Haceb.Demanda.Domain.Enum
         [Description("Medio")]
         Medium = 2,
         [Description("Alto")]
-        High = 3
+        High = 3,
+        [Description("Critico")]
+        Critical = 4
     }
 }

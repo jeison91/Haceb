@@ -13,7 +13,6 @@ namespace Haceb.Demanda.Infrastructure
         public DbSet<RatingEntity> Ratings { get; set; }
         public DbSet<DemandTypeEntity> DemandTypes { get; set; }
         public DbSet<DemandEntity> Demands { get; set; }
-        public DbSet<DemandAssignmentEntity> DemandAssignments { get; set; }
         public DbSet<DemandHistoryEntity> DemandHistories { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

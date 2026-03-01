@@ -16,7 +16,7 @@ namespace Haceb.Demanda.Infrastructure.Configuration
             builder.ToTable("DemandHistories");
             builder.HasKey(x => x.Id);
             builder.Property(d => d.Id).ValueGeneratedOnAdd();
-            builder.Property(x => x.Action).IsRequired().HasMaxLength(200);
+            builder.Property(x => x.Action).IsRequired().HasMaxLength(20);
             builder.Property(x => x.Comments).HasMaxLength(1000);
             builder.Property(x => x.UserId).IsRequired();
 

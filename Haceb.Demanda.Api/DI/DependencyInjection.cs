@@ -1,6 +1,10 @@
 ﻿using Haceb.Demanda.Application.Mappings;
+using Haceb.Demanda.Application.Port;
+using Haceb.Demanda.Application.UseCase;
+using Haceb.Demanda.Domain.IRepository;
 using Haceb.Demanda.Domain.Unit;
 using Haceb.Demanda.Infrastructure;
+using Haceb.Demanda.Infrastructure.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.DataProtection.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -44,12 +48,18 @@ namespace Haceb.Demanda.Api.DI
         private static void AddRegisterApplication(IServiceCollection services)
         {
             services.AddAutoMapper(cfg => cfg.AddProfile<GeneralMapperProfile>(), AppDomain.CurrentDomain.GetAssemblies());
-
+            services.AddScoped<IDemandPort, DemandUseCase>();
+            services.AddScoped<IUserPort, UserUseCase>();
+            services.AddScoped<ILookupItemPort, LookupItemUseCase>();
         }
 
         private static void AddRegisterInfrastructure(this IServiceCollection services)
         {
-
+            services.AddScoped<IDemandRepository, DemandRepository>();
+            services.AddScoped<IDemandHistoryRepository, DemandHistoryRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IRatingRepository, RatingRepository>();
+            services.AddScoped<IDemandTypeRepository, DemandTypeRepository>();
         }
 
         private static void Cors(this IServiceCollection services)

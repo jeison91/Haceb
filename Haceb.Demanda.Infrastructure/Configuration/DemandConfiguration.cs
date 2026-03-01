@@ -15,9 +15,8 @@ namespace Haceb.Demanda.Infrastructure.Configuration
         {
             builder.ToTable("Demands");
             builder.HasKey(d => d.Id);
-            builder.Property(d => d.Id).ValueGeneratedOnAdd();
-            builder.Property(d => d.CaseNumber).IsRequired().HasMaxLength(50);
-            builder.Property(d => d.PlaintiffName).IsRequired().HasMaxLength(200);
+            builder.Property(d => d.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Property(d => d.PlaintiffName).IsRequired().HasMaxLength(100);
             builder.Property(d => d.Description).IsRequired().HasMaxLength(1000);
             builder.Property(d => d.DateRegistry).IsRequired();
             builder.Property(d => d.Prioritize).IsRequired().HasConversion<int>();
@@ -37,10 +36,6 @@ namespace Haceb.Demanda.Infrastructure.Configuration
                .WithMany()
                .HasForeignKey(x => x.UserId)
                .OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasMany(x => x.AssignmentEntities)
-                .WithOne(x => x.DemandEntity)
-                .HasForeignKey(x=> x.DemandId);
 
             builder.HasMany(x => x.HistoryEntities)
                 .WithOne(x => x.DemandEntity)

@@ -4,20 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Haceb.Demanda.Domain.Entities
+namespace Haceb.Demanda.Application.DTO
 {
-    public class DemandHistoryEntity
+    public class DemandHistoryDto
     {
-        public int Id { get; private set; }
         public int DemandId { get; set; }
         public int UserId { get; set; }
         public string Action { get; set; }
         public string Comments { get; set; }
         public DateTime DateRegistry { get; set; }
-
-        //Relaciones
-        public DemandEntity DemandEntity { get; set; }
-        public UserEntity UserEntity { get; set; }
-
     }
 }
