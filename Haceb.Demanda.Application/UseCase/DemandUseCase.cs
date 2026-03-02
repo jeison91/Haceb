@@ -33,7 +33,7 @@ namespace Haceb.Demanda.Application.UseCase
         public async Task<DemandResponse> GetById(int id)
         {
             var Demand = await _demandRepository.GetByIdAsync(id) ??
-                throw new BadRequestException(JsonSerializer.Serialize(new MessageResponse() { Status = 400, Message = "Demanda no encontrada" }));
+                throw new BadRequestException(JsonSerializer.Serialize(new MessageResponse() { Status = 400, Message = "Demanda no encontrada." }));
             var MapDemand = _mapper.Map<DemandResponse>(Demand);
             return MapDemand;
         }
@@ -58,7 +58,7 @@ namespace Haceb.Demanda.Application.UseCase
         public async Task UpdateDemand(DemandUpdateRequest request)
         {
             _demandEntity = await _demandRepository.GetByIdAsync(request.Id) ??
-                throw new BadRequestException(JsonSerializer.Serialize(new MessageResponse() { Status = 400, Message = "Demanda no encontrada" }));
+                throw new BadRequestException(JsonSerializer.Serialize(new MessageResponse() { Status = 400, Message = "Demanda no encontrada." }));
             await ChangedStatus(request);
             await ChangedRating(request);
             await ChangedPrioritize(request);
@@ -75,7 +75,7 @@ namespace Haceb.Demanda.Application.UseCase
                 var history = BuildDemandHistory(
                     _demandEntity.Id,
                     request.UserId,
-                    "StatusChanged",
+                    "Status",
                     $"Status cambio de {_demandEntity.Status} a {request.Status}");
                 _demandEntity.Status = request.Status;
 
@@ -90,8 +90,8 @@ namespace Haceb.Demanda.Application.UseCase
                 var history = BuildDemandHistory(
                     _demandEntity.Id,
                     request.UserId,
-                    "RatingChanged",
-                    $"Cambio de clasificación de {_demandEntity.RatingId} a {request.RatingId}");
+                    "Rating",
+                    $"Cambio clasificación de {_demandEntity.RatingId} a {request.RatingId}");
                 _demandEntity.RatingId = request.RatingId;
 
                 await _historyRepository.AddAsync(history);
@@ -105,8 +105,8 @@ namespace Haceb.Demanda.Application.UseCase
                 var history = BuildDemandHistory(
                     _demandEntity.Id,
                     request.UserId,
-                    "PrioritizeChanged",
-                    $"Cambio de usuario de {_demandEntity.Prioritize} a {request.Prioritize}");
+                    "Prioritize",
+                    $"Cambio prioridad de {_demandEntity.Prioritize} a {request.Prioritize}");
                 _demandEntity.Prioritize = request.Prioritize;
 
                 await _historyRepository.AddAsync(history);
@@ -121,7 +121,7 @@ namespace Haceb.Demanda.Application.UseCase
                     _demandEntity.Id,
                     request.UserId,
                     "Assigned",
-                    $"Cambio de usuario de {_demandEntity.UserId} a {request.UserId}");
+                    $"Cambio usuario de {_demandEntity.UserId} a {request.UserId}");
                 _demandEntity.UserId = request.UserId;
 
                 await _historyRepository.AddAsync(history);
@@ -130,7 +130,7 @@ namespace Haceb.Demanda.Application.UseCase
 
         private async Task AddComments(DemandUpdateRequest request)
         {
-            if (string.IsNullOrEmpty(request.Comments))
+            if (!string.IsNullOrEmpty(request.Comments))
             {
                 var history = BuildDemandHistory(
                     _demandEntity.Id,

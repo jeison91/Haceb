@@ -8,9 +8,9 @@ namespace Haceb.Demanda.Domain.Entities
 {
     public class DemandTypeEntity
     {
-        public int Id { get; set; }
+        public required int Id { get; set; }
         public required string Description { get; set; }
 
-        public virtual ICollection<DemandEntity> Demands { get; private set; }
+        public virtual ICollection<DemandEntity> Demands { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace Haceb.Demanda.Application.DTO
         public string Description { get; set; }
         public int TypeId { get; set; }
         public int RatingId { get; set; }
-        public int? UserId { get; set; }
+        public int UserId { get; set; }
     }
 
     public class DemandRequestValidator : AbstractValidator<DemandRequest>
@@ -40,6 +40,10 @@ namespace Haceb.Demanda.Application.DTO
             RuleFor(x => x.RatingId)
                 .GreaterThan(0)
                 .WithMessage("Debe ingresar una clasificación válida.");
+
+            RuleFor(x => x.UserId)
+                .GreaterThan(0)
+                .WithMessage("Debe ingresar una usuario válido.");
         }
     }
 }

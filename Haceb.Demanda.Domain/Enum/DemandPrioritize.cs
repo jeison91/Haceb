@@ -9,6 +9,8 @@ namespace Haceb.Demanda.Domain.Enum
 {
     public enum DemandPrioritize
     {
+        [Description("Ninguna")]
+        None = 0,
         [Description("Bajo")]
         Low = 1,
         [Description("Medio")]

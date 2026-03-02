@@ -23,14 +23,20 @@ namespace Haceb.Demanda.Infrastructure.Repository
             return Task.CompletedTask;
         }
 
-        public async Task<DemandEntity?> GetByIdAsync(int id) => 
+        public async Task<DemandEntity?> GetByIdAsync(int id) =>
             await _context.Demands
-            .Include(d => d.HistoryEntities)
+            .Include(d => d.Rating)
+            .Include(d => d.TypeEntity)
+            .Include(d => d.UserEntity)
+            .Include(d => d.HistoryEntities).ThenInclude(h => h.UserEntity)
             .FirstOrDefaultAsync(d => d.Id == id);
 
         public async Task<List<DemandEntity>> GetByTypeStatusAsync(int idType, DemandStatus status) =>
             await _context.Demands.AsNoTracking()
-            .Include(d => d.HistoryEntities)
+            .Include(d => d.Rating)
+            .Include(d => d.TypeEntity)
+            .Include(d => d.UserEntity)
+            .Include(d => d.HistoryEntities).ThenInclude(h=> h.UserEntity)
             .Where(x => x.TypeId == idType && x.Status == status).ToListAsync();
 
         public async Task<List<DemandEntity>> GetListAsync(int? pageNumber = null, int? pageSize = null)
@@ -39,7 +45,10 @@ namespace Haceb.Demanda.Infrastructure.Repository
             if (pageNumber.HasValue && pageSize.HasValue)
             {
                 demands = _context.Demands.AsNoTracking()
-                    .Include(d => d.HistoryEntities)
+                    .Include(d => d.Rating)
+                    .Include(d => d.TypeEntity)
+                    .Include(d => d.UserEntity)
+                    .Include(d => d.HistoryEntities).ThenInclude(h => h.UserEntity)
                     .OrderBy(x => x.Id)
                     .Skip((pageNumber.Value - 1) * pageSize.Value)
                     .Take(pageSize.Value);
@@ -47,7 +56,10 @@ namespace Haceb.Demanda.Infrastructure.Repository
             else
             {
                 demands = _context.Demands.AsNoTracking()
-                    .Include(d => d.HistoryEntities)
+                    .Include(d => d.Rating)
+                    .Include(d => d.TypeEntity)
+                    .Include(d => d.UserEntity)
+                    .Include(d => d.HistoryEntities).ThenInclude(h => h.UserEntity)
                     .OrderBy(x => x.Id);
             }
 

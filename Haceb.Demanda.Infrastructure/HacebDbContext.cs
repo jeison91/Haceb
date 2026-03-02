@@ -29,8 +29,8 @@ namespace Haceb.Demanda.Infrastructure
                 new DemandTypeEntity { Id = 3, Description = "Soportes" },
                 new DemandTypeEntity { Id = 4, Description = "Incidentes" },
                 new DemandTypeEntity { Id = 5, Description = "Temas legales" },
-                new DemandTypeEntity { Id = 5, Description = "Vulnerabilidades" },
-                new DemandTypeEntity { Id = 5, Description = "Apoyos" }
+                new DemandTypeEntity { Id = 6, Description = "Vulnerabilidades" },
+                new DemandTypeEntity { Id = 7, Description = "Apoyos" }
             );
 
             modelBuilder.Entity<RatingEntity>().HasData(
