@@ -23,10 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Presentation\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Haceb.Demanda.Application\Haceb.Demanda.Application.csproj" />
     <ProjectReference Include="..\Haceb.Demanda.Domain\Haceb.Demanda.Domain.csproj" />
   </ItemGroup>

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Haceb.Demanda.Application.DTO
+namespace Haceb.Demand.Services.Dto
 {
-    public class DemandHistoryDto
+    public class DemandHistoryResponseDto
     {
         public int DemandId { get; set; }
         public int UserId { get; set; }

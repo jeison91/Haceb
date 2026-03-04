@@ -15,17 +15,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Test", "5. Test", "{918D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6. Common", "6. Common", "{7B2A247D-FA62-4B42-BC83-B9C5FC250E50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Haceb.Demanda.Api", "Haceb.Demanda.Api\Haceb.Demanda.Api.csproj", "{F9B96601-F685-4DD8-8BDF-E3EC9FB04058}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Haceb.Demanda.Api", "Haceb.Demanda.Api\Haceb.Demanda.Api.csproj", "{F9B96601-F685-4DD8-8BDF-E3EC9FB04058}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Haceb.Demanda.Application", "Haceb.Demanda.Application\Haceb.Demanda.Application.csproj", "{03F7712F-F8E8-490F-A25B-086C8D96BF11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Haceb.Demanda.Application", "Haceb.Demanda.Application\Haceb.Demanda.Application.csproj", "{03F7712F-F8E8-490F-A25B-086C8D96BF11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Haceb.Demanda.Domain", "Haceb.Demanda.Domain\Haceb.Demanda.Domain.csproj", "{CECF14F7-ED57-468A-963F-20DDC2424B8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Haceb.Demanda.Domain", "Haceb.Demanda.Domain\Haceb.Demanda.Domain.csproj", "{CECF14F7-ED57-468A-963F-20DDC2424B8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Haceb.Demanda.Infrastructure", "Haceb.Demanda.Infrastructure\Haceb.Demanda.Infrastructure.csproj", "{263C191E-1824-4667-883D-519476D988B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Haceb.Demanda.Infrastructure", "Haceb.Demanda.Infrastructure\Haceb.Demanda.Infrastructure.csproj", "{263C191E-1824-4667-883D-519476D988B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Haceb.Demanda.Test", "Haceb.Demanda.Test\Haceb.Demanda.Test.csproj", "{855EB4CF-B82C-4063-A5B8-B49EC1E1DC07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Haceb.Demanda.Test", "Haceb.Demanda.Test\Haceb.Demanda.Test.csproj", "{855EB4CF-B82C-4063-A5B8-B49EC1E1DC07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Haceb.Demanda.Common", "Haceb.Demanda.Common\Haceb.Demanda.Common.csproj", "{B6754BCB-5A95-4DC4-8908-F2AF8281F6CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Haceb.Demanda.Common", "Haceb.Demanda.Common\Haceb.Demanda.Common.csproj", "{B6754BCB-5A95-4DC4-8908-F2AF8281F6CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0. Front", "0. Front", "{DB3E51D1-99D9-4EED-8E12-71133746BEE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Haceb.Demanda.Web", "Haceb.Demanda.Web\Haceb.Demanda.Web.csproj", "{539294DC-5D42-4DAB-A494-91D6EF0805CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Haceb.Demand.Services", "Haceb.Demand.Services\Haceb.Demand.Services.csproj", "{C3504BAA-8C49-4D79-BBAB-803450695883}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +63,14 @@ Global
 		{B6754BCB-5A95-4DC4-8908-F2AF8281F6CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6754BCB-5A95-4DC4-8908-F2AF8281F6CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6754BCB-5A95-4DC4-8908-F2AF8281F6CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{539294DC-5D42-4DAB-A494-91D6EF0805CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{539294DC-5D42-4DAB-A494-91D6EF0805CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{539294DC-5D42-4DAB-A494-91D6EF0805CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{539294DC-5D42-4DAB-A494-91D6EF0805CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3504BAA-8C49-4D79-BBAB-803450695883}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3504BAA-8C49-4D79-BBAB-803450695883}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3504BAA-8C49-4D79-BBAB-803450695883}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3504BAA-8C49-4D79-BBAB-803450695883}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +82,8 @@ Global
 		{263C191E-1824-4667-883D-519476D988B5} = {BA67AB78-D3E7-4C57-98DE-8F9B29146E73}
 		{855EB4CF-B82C-4063-A5B8-B49EC1E1DC07} = {918DD3D6-5EC7-4C54-B500-67F9D87C9A69}
 		{B6754BCB-5A95-4DC4-8908-F2AF8281F6CE} = {7B2A247D-FA62-4B42-BC83-B9C5FC250E50}
+		{539294DC-5D42-4DAB-A494-91D6EF0805CE} = {DB3E51D1-99D9-4EED-8E12-71133746BEE9}
+		{C3504BAA-8C49-4D79-BBAB-803450695883} = {DB3E51D1-99D9-4EED-8E12-71133746BEE9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5354C4EF-E352-449E-90CD-A696D41493B5}

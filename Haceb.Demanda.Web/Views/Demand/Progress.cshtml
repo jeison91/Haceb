@@ -1,0 +1,70 @@
+﻿@model DemandProgressViewModel
+
+<div class="container mt-4">
+    <h2>Registrar Avance</h2>
+
+    <form asp-action="Progress" method="post">
+
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label>Tipo de Demanda</label>
+            <select asp-for="TypeId"
+                    asp-items="Model.Types"
+                    class="form-select">
+                <option value="">-- Seleccione --</option>
+            </select>
+            <span asp-validation-for="TypeId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label>Prioridad</label>
+            <select asp-for="Prioritize"
+                    asp-items="Model.Priorities"
+                    class="form-select">
+                <option value="">-- Seleccione --</option>
+            </select>
+            <span asp-validation-for="Prioritize" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label>Clasificación</label>
+            <select asp-for="RatingId"
+                    asp-items="Model.Ratings"
+                    class="form-select">
+                <option value="">-- Seleccione --</option>
+            </select>
+            <span asp-validation-for="RatingId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label>Estado</label>
+            <select asp-for="StateId"
+                    asp-items="Model.Status"
+                    class="form-select">
+                <option value="">-- Seleccione --</option>
+            </select>
+            <span asp-validation-for="StateId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label>Asignado a</label>
+            <select asp-for="UserId"
+                    asp-items="Model.Users"
+                    class="form-select">
+                <option value="">-- Seleccione --</option>
+            </select>
+            <span asp-validation-for="UserId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Comentario del Avance</label>
+            <textarea asp-for="Comments" class="form-control"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            Guardar Avance
+        </button>
+        <a asp-action="Index" class="btn btn-secondary">Volver</a>
+    </form>
+</div>

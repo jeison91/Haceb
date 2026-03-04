@@ -12,7 +12,6 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Text;
-using static Haceb.Demanda.Infrastructure.HacebDbContext;
 
 namespace Haceb.Demanda.Api.DI
 {

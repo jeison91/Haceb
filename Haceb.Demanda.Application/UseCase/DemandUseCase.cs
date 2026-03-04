@@ -2,6 +2,7 @@
 using Haceb.Demanda.Application.DTO;
 using Haceb.Demanda.Application.Port;
 using Haceb.Demanda.Common.Exceptions;
+using Haceb.Demanda.Common.Helper;
 using Haceb.Demanda.Common.ResponseModel;
 using Haceb.Demanda.Domain.Entities;
 using Haceb.Demanda.Domain.Enum;
@@ -9,6 +10,7 @@ using Haceb.Demanda.Domain.IRepository;
 using Haceb.Demanda.Domain.Unit;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -63,6 +65,7 @@ namespace Haceb.Demanda.Application.UseCase
             await ChangedRating(request);
             await ChangedPrioritize(request);
             await ChangedUser(request);
+            await ChangedType(request);
             await AddComments(request);
 
             await _unitOfWork.SaveChangesAsync();
@@ -76,7 +79,7 @@ namespace Haceb.Demanda.Application.UseCase
                     _demandEntity.Id,
                     request.UserId,
                     "Status",
-                    $"Status cambio de {_demandEntity.Status} a {request.Status}");
+                    $"Status cambio de {Helpers.GetDescription(_demandEntity.Status)} a {Helpers.GetDescription(request.Status)}");
                 _demandEntity.Status = request.Status;
 
                 await _historyRepository.AddAsync(history);
@@ -106,7 +109,7 @@ namespace Haceb.Demanda.Application.UseCase
                     _demandEntity.Id,
                     request.UserId,
                     "Prioritize",
-                    $"Cambio prioridad de {_demandEntity.Prioritize} a {request.Prioritize}");
+                    $"Cambio prioridad de {Helpers.GetDescription(_demandEntity.Prioritize)} a {Helpers.GetDescription(request.Prioritize)}");
                 _demandEntity.Prioritize = request.Prioritize;
 
                 await _historyRepository.AddAsync(history);
@@ -123,6 +126,21 @@ namespace Haceb.Demanda.Application.UseCase
                     "Assigned",
                     $"Cambio usuario de {_demandEntity.UserId} a {request.UserId}");
                 _demandEntity.UserId = request.UserId;
+
+                await _historyRepository.AddAsync(history);
+            }
+        }
+
+        private async Task ChangedType(DemandUpdateRequest request)
+        {
+            if (_demandEntity.TypeId != request.TypeId)
+            {
+                var history = BuildDemandHistory(
+                    _demandEntity.Id,
+                    request.UserId,
+                    "DemandType",
+                    $"Tipo demanda cambio de {_demandEntity.TypeId} a {request.TypeId}");
+                _demandEntity.TypeId = request.TypeId;
 
                 await _historyRepository.AddAsync(history);
             }

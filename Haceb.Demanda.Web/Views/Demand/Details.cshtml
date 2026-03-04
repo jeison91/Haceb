@@ -1,0 +1,47 @@
+﻿@model DemandDetailViewModel
+
+<div class="container mt-4">
+
+    <h3>Detalle Demanda</h3>
+
+    <div class="card mb-3">
+        <div class="card-body">
+            <p><strong>Caso:</strong> @Model.Id</p>
+            <p><strong>Demandante:</strong> @Model.PlaintiffName</p>
+            <p><strong>Tipo Demanda:</strong> @Model.Type</p>
+            <p><strong>Clasificación:</strong> @Model.Rating</p>
+            <p><strong>Descripción:</strong> @Model.Description</p>
+            <p><strong>Estado:</strong> @Model.Status</p>
+            <p><strong>Asignado a:</strong> @Model.UserName</p>
+            <p><strong>Fecha:</strong> @Model.CreatedDate</p>
+        </div>
+    </div>
+
+    <h5>Historial de Avances</h5>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Usuario</th>
+                <th>Comentario</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ProgressHistory)
+            {
+                <tr>
+                    <td>@item.CreatedDate</td>
+                    <td>@item.UserName</td>
+                    <td>@item.Comments</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a asp-action="Progress" asp-route-id="@Model.Id"
+       class="btn btn-success">Registrar Avance</a>
+
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+
+</div>

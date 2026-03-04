@@ -1,0 +1,60 @@
+﻿@model DemandCreateViewModel
+
+<div class="container mt-4">
+    <h3>Nueva Demanda</h3>
+
+    <form asp-action="Create" method="post">
+        <div class="mb-3">
+            <label asp-for="PlaintiffName" class="form-label"></label>
+            <input asp-for="PlaintiffName" class="form-control" />
+            <span asp-validation-for="PlaintiffName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label>Tipo de Demanda</label>
+            <select asp-for="TypeId"
+                    asp-items="Model.Types"
+                    class="form-select">
+                <option value="">-- Seleccione --</option>
+            </select>
+            <span asp-validation-for="TypeId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label>Clasificación</label>
+            <select asp-for="RatingId"
+                    asp-items="Model.Ratings"
+                    class="form-select">
+                <option value="">-- Seleccione --</option>
+            </select>
+            <span asp-validation-for="RatingId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label>Asignado a</label>
+            <select asp-for="UserId"
+                    asp-items="Model.Users"
+                    class="form-select">
+                <option value="">-- Seleccione --</option>
+            </select>
+            <span asp-validation-for="UserId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label"></label>
+            <textarea asp-for="Description"
+                      class="form-control"></textarea>
+            <span asp-validation-for="Description"
+                  class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Guardar
+        </button>
+
+        <a asp-action="Index" class="btn btn-secondary">
+            Cancelar
+        </a>
+
+    </form>
+</div>

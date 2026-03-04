@@ -33,7 +33,7 @@ namespace Haceb.Demanda.Application.Mappings
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.UserEntity.Username))
                 .ForMember(dest => dest.History, opt => opt.MapFrom(src => src.HistoryEntities));
 
-            CreateMap<DemandHistoryEntity, DemandHistoryDto>()
+            CreateMap<DemandHistoryEntity, DemandHistoryResponse>()
                 .ForMember(dest => dest.DemandId, opt => opt.MapFrom(src => src.DemandId))
                 .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId))
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.UserEntity.Username))
